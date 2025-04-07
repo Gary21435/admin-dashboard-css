@@ -1,0 +1,63 @@
+/* Design Notes */
+    /* Use grid for structure of the main three body>divs: .sidebar, .top-secton, .second-section */
+    /* Use grid for the .second-seciton>divs */
+        /* The above specify a rigid structure for the page, which is why grid is better */
+    
+    /* Use flexbox for .sidebar>divs, .top-line> and .second-line>, and everything else basically */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template: repeat(6, 1fr) / repeat(5, 1fr);
+    grid-template-areas: 
+        "sidebar topsection topsection topsection topsection"
+        "sidebar second second second second"
+        "sidebar second second second second"
+        "sidebar second second second second"
+        "sidebar second second second second"
+        "sidebar second second second second"
+    ;
+}
+
+.sidebar {
+    grid-area: sidebar;
+
+    background-color: aqua;
+}
+
+.top-section {
+    grid-area: topsection;
+
+    background-color: aquamarine;
+}
+
+.second-section {
+    grid-area: second;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(10, 1fr);
+    grid-template-areas: 
+        "projects projects projects projects projects projects projects announcements announcements announcements"
+        "projects projects projects projects projects projects projects trending trending trending"
+    ;
+
+    background-color: bisque;
+}
+
+.projects-container {
+    grid-area: projects;
+}
+
+.announcements {
+    grid-area: announcements;
+}
+
+.trending {
+    grid-area: trending;
+}
